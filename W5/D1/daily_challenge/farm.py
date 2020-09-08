@@ -35,6 +35,11 @@ class Farm:
         info = f"{self.name}\n" f"{inventory}" f"    E-I-E-I-O    "
         return info
 
+    def get_animal_types(self):
+        animals = list(self.animals.keys())
+        animals.sort()
+        return animals
+
 
 def main():
     mcdonald = Farm("McDonald")
