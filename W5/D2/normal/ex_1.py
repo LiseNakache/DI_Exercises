@@ -35,20 +35,26 @@ class Member(Family):
         return self.child
 
     def is_18(self, name):
-        if name in self.Members:
-            for adult in self.Members:
-                print(adult)
+        for k, v in self.Members.items():
+            if k == "age" and v > 18:
+                print(v)
+                if k == "name" and v == name:
+                    print(f"{k} is an adult")
+            
 
 def main():
-    Members = [{'name': 'Michael', 'age': 35, 'gender': 'Male', 'is_child': False}, {
-        'name': 'Sarah', 'age': 32, 'gender': 'Female', 'is_child': False}]
-    Cohen = Family("Cohen", Members)
-    new_Child = Member("Cohen", "Julien", Members)
-    new_Child.born(name="Julien", gender="male")
-    Cohen.Members.append(new_Child)
-    Cohen.print_Family()
-    print(Member.Members)
-    print(new_Child.name)
+    Cohen = Family("Cohen", [])
+    Michael = Member("Cohen","Michael", {'name': 'Michael', 'age': 35, 'gender': 'Male', 'is_child': False}, )
+    Cohen.Members.append(Michael)
+    # Members = [{'name': 'Michael', 'age': 35, 'gender': 'Male', 'is_child': False}, {
+    #     'name': 'Sarah', 'age': 32, 'gender': 'Female', 'is_child': False}]
+    # new_Child = Member("Cohen", "Julien", Members)
+    # new_Child.born(name="Julien", gender="male")
+    # Cohen.Members.append(new_Child)
+    # Cohen.print_Family()
+    # print(Cohen.Members)
+    Michael.is_18("Michael")
+    # print(new_Child.name)
     
 
 
