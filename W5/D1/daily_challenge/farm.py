@@ -24,18 +24,21 @@ class Farm:
             number: number of animals to add
         #return: returns updated dict animals of Farm instance
         """
+
         self.animals[animal] += number
         return self.animals
 
     def get_info(self):
         inventory = ""
         for k, v in self.animals.items():
-            inventory1 = f"{k}"
-            inventory2 = "{:>15}\n"
-            concat_inv = inventory1 + inventory2
-            inventory += concat_inv.format(v)
+            inventory +=f"{k}\t\t\t{v}\n"
         info = f"{self.name}\n" f"{inventory}" f"    E-I-E-I-O    "
         return info
+
+    def get_animal_types(self):
+        animals = list(self.animals.keys())
+        animals.sort()
+        return animals
 
 
 def main():

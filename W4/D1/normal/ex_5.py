@@ -6,8 +6,8 @@
 #>> 3 == 3
 # true4
 # print(3 == 3)
-#>>> 3 == "3"
-#true
+# 3 == "3" 
+# False
 # print(3 == "3")
 #>>> "3" > 3
 #error can't compare between str and int
