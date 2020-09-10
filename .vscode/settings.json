@@ -31,6 +31,6 @@
         ".sass": "sass --style expanded",
         ".cu": "cd $dir && nvcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
         ".python": "python3",
-        // ".py": "python3",
+        ".py": "python3"
     }
 }

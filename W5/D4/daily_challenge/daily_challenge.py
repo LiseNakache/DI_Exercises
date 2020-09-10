@@ -48,6 +48,7 @@ class Text:
             raise ValueError("does seem like there is something wrong with the value")
         return unique_words
 
+    @property
     def get_most_common(self):
         """:return returns the word that appears the most in a string"""
         try:
@@ -58,6 +59,7 @@ class Text:
             # for each word in the list, check if already exists,
             # if not add to count_dict, if yes increment value in count dict
             for word in word_list:
+                word = word.upper()
                 if word.isalpha():
                     if word not in count_dict:
                         count_dict.update({word: 1})
@@ -65,6 +67,7 @@ class Text:
                         count_dict[word] += 1
                         if count_dict.get(word) > most_common_count:
                             count_dict.update({"most_common": word})
+                            most_common_count = count_dict.get(word)
         except ValueError:
             raise ValueError
         most_common = count_dict.get("most_common")
@@ -134,10 +137,10 @@ def main():
     # Text.from_txt_file('the_stranger.txt')
     text2 = Text()
     # print(f"frequency of 'and' in textfile {text2.get_word_freq('and')}")
-    print(f"most common word: {text2.get_most_common()}")
+    print(f"most common word: {text2.get_most_common}")
     # # print(f"Word is unique list {text2.word_is_unique()}")
     # text3 = TextModification()
-    # # print(text3.remove_punctuation())
+    # print(text3.remove_punctuation())
     # print(text3.remove_stop_words())
 
 if __name__ == '__main__':
